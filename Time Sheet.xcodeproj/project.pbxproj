@@ -54,10 +54,10 @@
 		0D949CFA1FA3F43200960BA2 /* Time Sheet */ = {
 			isa = PBXGroup;
 			children = (
-				0D949CFB1FA3F43200960BA2 /* AppDelegate.swift */,
-				0D949CFD1FA3F43200960BA2 /* ViewController.swift */,
 				0D949CFF1FA3F43200960BA2 /* Main.storyboard */,
+				0D949CFD1FA3F43200960BA2 /* ViewController.swift */,
 				0D949D021FA3F43200960BA2 /* Assets.xcassets */,
+				0D949CFB1FA3F43200960BA2 /* AppDelegate.swift */,
 				0D949D041FA3F43200960BA2 /* LaunchScreen.storyboard */,
 				0D949D071FA3F43200960BA2 /* Info.plist */,
 			);

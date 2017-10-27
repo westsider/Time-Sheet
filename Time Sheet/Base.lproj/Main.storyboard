@@ -1,24 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="BradleyHand-Bold.ttf">
+            <string>BradleyHandITCTT-Bold</string>
+        </array>
+        <array key="PingFang.ttc">
+            <string>PingFangHK-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Time_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart" translatesAutoresizingMaskIntoConstraints="NO" id="dTY-tW-9hw">
+                                <rect key="frame" x="11" y="0.0" width="352" height="313"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="313" id="dd0-04-AiR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei6-cJ-AAR">
+                                <rect key="frame" x="16" y="331" width="343" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Gc1-XG-wCM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="28"/>
+                                <color key="textColor" red="0.36762052774429321" green="0.81335800886154175" blue="0.9807249903678894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="40T-2m-mqq" userLabel="Stats Stack View">
+                                <rect key="frame" x="40" y="380" width="315" height="140"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eS9-Ro-xEL">
+                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ji-He-UQD">
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="32"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <state key="normal" title="Call Time ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeCallAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Mj-QD-on2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZV-fV-PIl">
+                                                <rect key="frame" x="0.0" y="40" width="40" height="32"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <state key="normal" title="Lunch">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeLunchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOs-In-EYM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G42-Zf-aIj">
+                                                <rect key="frame" x="0.0" y="80" width="71" height="32"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <state key="normal" title="Wrap Time">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9r-a0-iTn">
+                                                <rect key="frame" x="0.0" y="120" width="49" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-sA-0y3">
+                                        <rect key="frame" x="186.5" y="3" width="128.5" height="134"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGE-pL-wos">
+                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-r1-ugp">
+                                                <rect key="frame" x="0.0" y="38" width="128.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Y-nh-KuK">
+                                                <rect key="frame" x="0.0" y="76" width="128.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5,600" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHs-Kh-vRZ">
+                                                <rect key="frame" x="0.0" y="114" width="128.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4YN-5B-VjP" userLabel="Button Stack View">
+                                <rect key="frame" x="20" y="618" width="335" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7p-Ww-r7O">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                        <state key="normal" title="update">
+                                            <color key="titleColor" red="0.52154112490000004" green="0.65439286890000004" blue="0.97105586529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f1q-tC-eP6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PY-SW-vhe">
+                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
+                                        <state key="normal" title="list">
+                                            <color key="titleColor" red="0.52154112490000004" green="0.65439286890000004" blue="0.97105586529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="listJobsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgl-aN-ICn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-Oj-vL7">
+                                <rect key="frame" x="117" y="114" width="141" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c4l-sT-z0l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="51"/>
+                                <state key="normal" title="Sonic">
+                                    <color key="titleColor" red="0.36340412497520447" green="0.80946367979049683" blue="0.98091119527816772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeJobNameAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jph-19-DLH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.048362173140048981" green="0.16645288467407227" blue="0.34990981221199036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ei6-cJ-AAR" secondAttribute="trailing" constant="16" id="0mT-lw-P3S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="40T-2m-mqq" secondAttribute="trailing" constant="20" id="27P-cA-XMK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dTY-tW-9hw" secondAttribute="trailing" constant="12" id="5H7-Rb-hJL"/>
+                            <constraint firstItem="dTY-tW-9hw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="62f-ne-Xd2"/>
+                            <constraint firstItem="O5v-Oj-vL7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="94" id="9DP-a9-KY0"/>
+                            <constraint firstItem="40T-2m-mqq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="AyM-sg-dRf"/>
+                            <constraint firstItem="4YN-5B-VjP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CVC-02-rcL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4YN-5B-VjP" secondAttribute="bottom" constant="17" id="EbK-eq-5sE"/>
+                            <constraint firstItem="4YN-5B-VjP" firstAttribute="top" secondItem="40T-2m-mqq" secondAttribute="bottom" constant="98" id="LC9-qa-dP7"/>
+                            <constraint firstItem="Ei6-cJ-AAR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LXe-KE-NR2"/>
+                            <constraint firstItem="Ei6-cJ-AAR" firstAttribute="top" secondItem="dTY-tW-9hw" secondAttribute="bottom" constant="18" id="R2I-Bq-SBf"/>
+                            <constraint firstItem="40T-2m-mqq" firstAttribute="top" secondItem="Ei6-cJ-AAR" secondAttribute="bottom" constant="11" id="X8r-Ka-K8G"/>
+                            <constraint firstItem="dTY-tW-9hw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="Z5L-tY-4AR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O5v-Oj-vL7" secondAttribute="trailing" constant="117" id="ZOt-IF-YAw"/>
+                            <constraint firstItem="Ei6-cJ-AAR" firstAttribute="top" secondItem="O5v-Oj-vL7" secondAttribute="bottom" constant="187" id="jhL-Gy-nCo"/>
+                            <constraint firstItem="O5v-Oj-vL7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="nEp-eG-buh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dTY-tW-9hw" secondAttribute="bottom" constant="354" id="peR-z0-iNd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4YN-5B-VjP" secondAttribute="trailing" constant="20" id="qXo-aP-MN6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="callTIme" destination="cGE-pL-wos" id="9oW-MX-AVD"/>
+                        <outlet property="jobName" destination="O5v-Oj-vL7" id="XLl-bS-QGw"/>
+                        <outlet property="lunch" destination="pGe-r1-ugp" id="lNv-0e-l33"/>
+                        <outlet property="totalForJob" destination="gHs-Kh-vRZ" id="tRj-bT-cFR"/>
+                        <outlet property="totalForToday" destination="Ei6-cJ-AAR" id="hnw-1u-o4S"/>
+                        <outlet property="wrapTime" destination="D3Y-nh-KuK" id="2QR-U3-ucS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="21.600000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart" width="324" height="358"/>
+    </resources>
 </document>
