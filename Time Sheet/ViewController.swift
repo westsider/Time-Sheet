@@ -27,9 +27,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var startTimeTextField: UITextField!
     
-    @IBOutlet weak var lunch: UILabel!
+    @IBOutlet weak var lunchTextField: UITextField!
     
-    @IBOutlet weak var wrapTime: UILabel!
+    @IBOutlet weak var wrapTextField: UITextField!
     
     @IBOutlet weak var totalForJob: UILabel!
     
@@ -37,6 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         startTimeTextField.delegate = self
+        lunchTextField.delegate = self
+        wrapTextField.delegate = self
     }
 
     @IBAction func dateFeildEditing(_ sender: UITextField) {
@@ -62,10 +64,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func editLunch(_ sender: UITextField) {
+        print("Lunch tapped \(String(describing: lunchTextField.text))")
+    }
+    
+    @IBAction func wrapTimeEtiting(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ViewController.wrapPickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    @objc func wrapPickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        wrapTextField.text = dateFormatter.string(from: sender.date)
+        
+    }
+    
     @IBAction func updateAction(_ sender: Any) {
         
         jobInfo.name = jobName.text
-        
         debugPrint(jobInfo)
     }
     

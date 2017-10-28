@@ -75,11 +75,11 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-sA-0y3">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-sA-0y3">
                                         <rect key="frame" x="186.5" y="0.0" width="128.5" height="140"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-sq-6Ch">
-                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="26"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-sq-6Ch">
+                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="21.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -87,20 +87,26 @@
                                                     <action selector="dateFeildEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="7Ua-nD-Hkh"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-r1-ugp">
-                                                <rect key="frame" x="0.0" y="44" width="128.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$1,200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Y-nh-KuK">
-                                                <rect key="frame" x="0.0" y="82" width="128.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$5,600" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHs-Kh-vRZ">
-                                                <rect key="frame" x="0.0" y="120" width="128.5" height="20"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egM-VA-rwh">
+                                                <rect key="frame" x="0.0" y="39.5" width="128.5" height="21.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="editLunch:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="yGN-ZI-58b"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ewq-fV-YVF">
+                                                <rect key="frame" x="0.0" y="79" width="128.5" height="21.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="wrapTimeEtiting:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="UBv-9B-HnR"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5,600" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHs-Kh-vRZ">
+                                                <rect key="frame" x="0.0" y="118.5" width="128.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -164,11 +170,11 @@
                     </view>
                     <connections>
                         <outlet property="jobName" destination="WYt-uO-j3D" id="q5c-rf-y47"/>
-                        <outlet property="lunch" destination="pGe-r1-ugp" id="lNv-0e-l33"/>
+                        <outlet property="lunchTextField" destination="egM-VA-rwh" id="7C7-ue-DFU"/>
                         <outlet property="startTimeTextField" destination="zCH-sq-6Ch" id="5Pz-cB-kyy"/>
                         <outlet property="totalForJob" destination="gHs-Kh-vRZ" id="tRj-bT-cFR"/>
                         <outlet property="totalForToday" destination="Ei6-cJ-AAR" id="hnw-1u-o4S"/>
-                        <outlet property="wrapTime" destination="D3Y-nh-KuK" id="2QR-U3-ucS"/>
+                        <outlet property="wrapTextField" destination="Ewq-fV-YVF" id="Pxf-Vb-yaR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
