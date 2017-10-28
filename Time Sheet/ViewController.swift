@@ -8,14 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JobInfo {
+    var name: String?
+    var startTime:Date?
+    var lunchDuration:Double?
+    var wrapTime:Date?
+    var currentProfit:Double?
+    var todaysProfit:Double?
+}
 
+class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var jobName: UIButton!
+    var jobInfo = JobInfo()
+    
+    @IBOutlet weak var jobName: UITextField!
     
     @IBOutlet weak var totalForToday: UILabel!
     
-    @IBOutlet weak var callTIme: UILabel!
+    @IBOutlet weak var startTimeTextField: UITextField!
     
     @IBOutlet weak var lunch: UILabel!
     
@@ -25,22 +35,52 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        startTimeTextField.delegate = self
     }
 
-    @IBAction func changeJobNameAction(_ sender: Any) {
+    @IBAction func dateFeildEditing(_ sender: UITextField) {
+        
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
-    @IBAction func changeCallAction(_ sender: Any) {
-    }
-    
-    @IBAction func changeLunchAction(_ sender: Any) {
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        startTimeTextField.text = dateFormatter.string(from: sender.date)
+        
     }
     
     @IBAction func updateAction(_ sender: Any) {
+        
+        jobInfo.name = jobName.text
+        
+        debugPrint(jobInfo)
     }
     
     @IBAction func listJobsAction(_ sender: Any) {
     }
+    
+    // MARK: - Keyboard behavior functions
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        startTimeTextField.resignFirstResponder()
+        return true
+    }
+    
 }
 
